@@ -192,7 +192,7 @@ $RECYCLE.BIN/
 # Windows Installer files
 *.cab
 *.msi
-*.msixn
+*.msix
 *.msm
 *.msp
 
