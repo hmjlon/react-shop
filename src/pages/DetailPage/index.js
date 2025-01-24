@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import axios from "axios";
+import { Row, Col } from "react-bootstrap";
+import Product from "../../component/Product"
 
 function Detail(props) {
   let [alert, setAlert] = useState(true);
@@ -58,7 +60,7 @@ function Detail(props) {
     
     let i = parseInt(id) + 1;
     
-
+    
     let searchArr = [];
     detail.forEach((x)=>{
       if(x.productId == i){
@@ -144,14 +146,23 @@ function Detail(props) {
                   상품정보제공고시
 
                   ● 제조연월: 수입제품으로 각 제품별 입고 시기에 따라 상이하여 정확한 제조연월 제공이 어렵습니다. 제조연월을 확인하시려면 고객센터에 문의하시기 바라며, 정확한 제조연월은 배송받으신 제품의 라벨을 참고하시기 바랍니다.
-                  ● A/S 책임자와 전화번호: (유)나이키코리아 온라인 스토어 고객센터 / 080-022-0182 
-                  ● 세탁방법 및 취급시 주의사항: 자세한 내용은 '자세히 보기'를 클릭하여 확인 부탁드립니다. 
-                  ● 미성년자 권리 보호 안내: 자세한 내용은 '자세히 보기' 를 클릭하여 확인 부탁드립니다. 
+                  ● A/S 책임자와 전화번호: (유)나이키코리아 온라인 스토어 고객센터 / 080-022-0182
+                  ● 세탁방법 및 취급시 주의사항: 자세한 내용은 '자세히 보기'를 클릭하여 확인 부탁드립니다.
+                  ● 미성년자 권리 보호 안내: 자세한 내용은 '자세히 보기' 를 클릭하여 확인 부탁드립니다.
                 </p>
               </div>
             </Tab>
           </Tabs>
         </div>
+        {/* <Row className="justify-content-md-center">
+          {props.product.map((p, index) => {
+            return (
+              <Col>
+                <Product product={product} index={index} />
+              </Col>
+            );
+        })}
+        </Row> */}
       </div>
     );
   }

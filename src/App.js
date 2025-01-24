@@ -2,16 +2,13 @@ import "./App.css";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { Row, Col } from "react-bootstrap";
 import data from "./data/shoes-data";
 import { useState } from "react";
-import Product from "./component/Product";
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import DetailPage from "./pages/DetailPage";
 import AboutPage from "./pages/AboutPage";
 import MainPage from "./pages/MainPage";
 import CartPage from "./pages/CartPage";
-import axios from "axios";
 
 function App() {
   const [product, setProduct] = useState(data);
@@ -61,22 +58,17 @@ function App() {
       {/* 라우터 처리 */}
       <Routes>
         <Route
-          path="/main"
+          index
           element={
             <div>
               <MainPage product={product} />
             </div>
           }
         />
-        <Route index element={<MainPage product={product} />} />
-        <Route
-          path="/detail/:id"
-          element={
-            <div>
-              <DetailPage product={product} />
-            </div>
-          }
-        />
+        <Route path="/main" element={<MainPage product={product} />}>
+          <Route path=":id" element={<DetailPage product={product} />}/>
+        </Route>
+        
         <Route
           path="/cart"
           element={
